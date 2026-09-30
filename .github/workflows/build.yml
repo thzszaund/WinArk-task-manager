@@ -1,43 +1,63 @@
-name: Build WinArk (Windows Vista/7 Compatible)
+name: Build WinArk
 
 on:
   push:
-    branches: [ main, master, develop ]
-  pull_request:
-    branches: [ main, master ]
+    branches: [ master ]
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: pwsh
+
 jobs:
-  diagnose:
-    name: "Diagnose Build Environment"
+  build:
     runs-on: windows-2022
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [x86, x64]
     steps:
-      - name: "1. Checkout"
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
-      - name: "2. List files"
-        run: |
-          echo "=== Root Files ==="
-          dir /B
-          echo.
-          echo "=== .github/workflows ==="
-          dir .github\workflows /B
-          echo.
-          echo "=== Solution Files ==="
-          dir /S /B *.sln
+    - uses: microsoft/setup-msbuild@v2
 
-      - name: "3. Setup MSBuild"
-        uses: microsoft/setup-msbuild@v1.1.3
+    - name: Environment info
+      run: |
+        Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\Include" | Select-Object -ExpandProperty Name
+        $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -all -property installationPath
+        Get-ChildItem "$vs\MSBuild\Microsoft\VC\v170\Platforms\x64\PlatformToolsets" | Select-Object -ExpandProperty Name
+        Test-Path "C:\Program Files (x86)\Windows Kits\10\Vsix\VS2022"
 
-      - name: "4. Verify MSBuild"
-        run: |
-          where msbuild.exe
-          msbuild.exe -version
+    - name: NuGet restore
+      run: |
+        nuget restore Anti-Rootkit.sln
 
-      - name: "5. Try simple build"
-        run: |
-          msbuild.exe Anti-Rootkit.sln -t:Rebuild /p:Configuration=Release /p:Platform=x64 /v:minimal
-        continue-on-error: true
+    - name: Build WinArk (${{ matrix.platform }})
+      run: |
+        msbuild Anti-Rootkit.sln -t:WinArk /p:Configuration=Release /p:Platform=${{ matrix.platform }} /v:minimal /nologo *> build.log
+        $code = $LASTEXITCODE
+        Get-Content build.log | Select-Object -Last 30
+        $errs = Get-Content build.log | Where-Object { $_ -match ': (fatal )?error ' } | Select-Object -Unique -First 10
+        foreach ($e in $errs) {
+          $m = $e.Trim()
+          if ($m.Length -gt 450) { $m = $m.Substring(0,450) }
+          Write-Host "::error::$m"
+        }
+        exit $code
 
+    - name: List outputs
+      if: success()
+      run: |
+        Get-ChildItem -Recurse -Include *.exe,*.sys,*.dll | Where-Object { $_.FullName -match 'Release' -and $_.FullName -notmatch '\\(obj|_deps|packages)\\' } | ForEach-Object { $_.FullName }
+
+    - uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: WinArk-${{ matrix.platform }}
+        path: |
+          **/Release/*.exe
+          **/Release/*.sys
+          **/Release/*.dll
+        if-no-files-found: warn
