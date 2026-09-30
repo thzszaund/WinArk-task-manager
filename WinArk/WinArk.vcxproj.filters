@@ -1,0 +1,1328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{e8752cae-be8f-4c31-af43-5941630a1bd1}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{b78d0494-78a8-467a-b050-27b65cea4487}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{6a481874-c802-43b3-a3a4-59c27f884f81}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{10f8875c-402d-466b-aba3-61e5510a6b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Table">
+      <UniqueIdentifier>{d07968ab-659c-4f34-b6a0-24262bbe73d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Views">
+      <UniqueIdentifier>{fe0579e0-3701-4db9-9309-07ac20d2cf8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs">
+      <UniqueIdentifier>{b327dbc2-2e7e-4824-8918-7b92d3477750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjectTypes">
+      <UniqueIdentifier>{56da20db-d0a7-4930-a3da-039b09b3fa96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands">
+      <UniqueIdentifier>{f2897338-8653-49ef-b06e-1734f5c42136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ui">
+      <UniqueIdentifier>{22d5f0e0-c055-4a9a-832f-ade66ad9649e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controls">
+      <UniqueIdentifier>{615cba77-8723-4b7e-abeb-c4118eefa63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters">
+      <UniqueIdentifier>{19b916de-7748-40bb-92ae-5315f290f739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Serializers">
+      <UniqueIdentifier>{7c95d02f-698c-456c-be5d-eaf370bacc32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scylla">
+      <UniqueIdentifier>{61f27167-faf5-4858-b437-8075280cd668}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinArk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessInfoEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormatHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SortHelpler.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="Table.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelModuleTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="DriverTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceInfoEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceManagerView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModuleDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessModuleTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessPropertiesDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EnvironmentDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ClipboardHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="TokenPropertiesDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="JobPropertiesDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessThreadDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessThreadTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessHandleDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessHandleTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AccessMaskDecoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerFactoryObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="WinStationObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="TokenObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolicLinkObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="SemaphoreObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="SectionObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectTypeFactory.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="MutexObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="JobObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="FileObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="EventObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessMemoryDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessMemoryTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="NewKeyDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="AppCommandBase.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteKeyCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="RenameKeyCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="RenameValueCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandManager.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateKeyCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberValueDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="StringValueDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiStringValueDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryValueDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ColumnManager.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ThemeSystem.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ListCtrlHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeValueCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Registry.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistryKey.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="RegHelpers.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyKeyCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyValueCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateValueCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="HexControl.cpp">
+      <Filter>Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryBuffer.cpp">
+      <Filter>Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="EnumString.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LocationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistrySearcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnerDrawnMenu.cpp">
+      <Filter>Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="Theme.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ThemeHelper.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteValueCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ListViewHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelHookView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="RegExportImport.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="SSDTHookTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolFileInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowSSDTTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelNotifyTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="PiDDBCacheTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="UnloadedDriverTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="DispatchRoutinesTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelRoutineDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessInlineHookDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessInlineHookTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemConfigDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EtwView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="IniFile.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterConfiguration.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="EventConfiguration.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="EventsDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="FiltersDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EventNameFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessIdFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessNameFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyNameFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyValueFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterFactory.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogHelper.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="CallStackDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EventPropertiesDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickFindDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SerializerFactory.cpp">
+      <Filter>Serializers</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryEventDataSerializer.cpp">
+      <Filter>Serializers</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVEventDataSerializer.cpp">
+      <Filter>Serializers</Filter>
+    </ClCompile>
+    <ClCompile Include="GotoKeyDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorsSelectionDlg.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorBox.cpp">
+      <Filter>Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="ThemeColor.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelPoolView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="BigPoolView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="DpcTimerTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="FileVersionInfoHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="IoTimerTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniFilterTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniFilterOperationTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniFilterDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="LogonSessionsView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="BypassDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="WFPFilterTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessATHookTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessATHookDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ScyllaDlg.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="HexEdit.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelEATHookDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelEATHookTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="WinExtHostsTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtensionTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtensionTableDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelInlineHookTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplorerView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellMgr.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SysInfoView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSchedView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="MiscView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectCallbackTable.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelInlineHookDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemUsersView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ImportsHandling.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="ApiReader.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessAccessHelper.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="IATSearcher.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="IATReferenceScan.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="ImportRebuilder.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="DisasmDlg.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="PickDLLDlg.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeImportExport.cpp">
+      <Filter>Scylla</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigServerDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessInfoEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SortHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="FormatHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="Table.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="SortedFilteredVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Internals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelModuleTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="DriverTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceInfoEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualListView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceManagerView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModuleDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessModuleTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessPropertiesDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvironmentDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ClipboardHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenPropertiesDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="JobPropertiesDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessThreadDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessThreadTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessHandleDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessHandleTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="NtDll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="SecurityInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AccessMaskDecoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerFactoryObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="WinStationObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolicLinkObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="SemaphoreObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="SectionObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectTypeFactory.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="MutexObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="JobObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="FileObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="EventObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessMemoryDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessMemoryTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="NewKeyDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="AppCommandBase.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeValueCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateValueCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteKeyCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="RenameKeyCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="RenameValueCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandManager.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateKeyCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="SecurityInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberValueDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="StringValueDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiStringValueDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryValueDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ColumnManager.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeViewManager.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ThemeSystem.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ListCtrlHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Registry.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistryKey.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="RegHelpers.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyKeyCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyValueCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="HexControl.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryBuffer.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumStrings.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FindOptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistrySearcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomButton.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnerDrawnMenu.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="SizeGrip.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="Theme.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ThemeHelper.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteValueCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ListViewHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelHookView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="RegExportImport.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="SSDTHookTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolFileInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowSSDTTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelNotifyTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="PiDDBCacheTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="UnloadedDriverTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="DispatchRoutinesTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelRoutineDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessInlineHookDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessInlineHookTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemConfigDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EtwView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewBase.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IniFile.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterConfiguration.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="EventConfiguration.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="EventsDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="FiltersDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EventNameFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessIdFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessNameFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyNameFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyValueFilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterFactory.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogHelper.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="CallStackDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EventPropertiesDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickFindDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SerializerFactory.h">
+      <Filter>Serializers</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryEventDataSerializer.h">
+      <Filter>Serializers</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVEventDataSerializer.h">
+      <Filter>Serializers</Filter>
+    </ClInclude>
+    <ClInclude Include="IEventDataSerializer.h">
+      <Filter>Serializers</Filter>
+    </ClInclude>
+    <ClInclude Include="GotoKeyDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorsSelectionDlg.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorBox.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="ThemeColor.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelPoolView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="BigPoolView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="DpcTimerTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="FileVersionInfoHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="IoTimerTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniFilterTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniFilterOperationTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniFilterDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="LogonSessionsView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="BypassDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="WFPFilterTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessATHookTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessATHookDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ScyllaDlg.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="HexEdit.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelEATHookDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelEATHookTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="WinExtHostsTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtensionTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtensionTableDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelInlineHookTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplorerView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ShellMgr.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="SysInfoView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ComHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskSchedView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomListView.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomSplitterWindow.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="MiscView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectCallbackTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelInlineHookDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemUsersView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Thunks.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="ImportsHandling.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiTree.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="Architecture.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiReader.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessAccessHelper.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="IATSearcher.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="IATReferenceScan.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="ImportRebuilder.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="DisasmDlg.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="PickDLLDlg.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeImportExport.h">
+      <Filter>Scylla</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigServerDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WinArk.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\WinArk.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\window.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\handles.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\refresh.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\event3.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tools.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Stop.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\stack.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\autoscroll.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\properties.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Play.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Pause.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\filter.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cancel.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\threads-new.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\threads-delete.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\threads.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\process-new.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\process-delete.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\object.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\network.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\memory.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\heap2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\heap.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\handle.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\gear.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\file.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dll-delete.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dll-add.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Modules.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\storage.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\registry.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\arrow_up_blue.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\folder_open.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\filter-edit.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\filter-delete.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\filter-add.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\arrow_down_blue.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ok_button.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ok.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\delete_button.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\letter-u.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\letter-k.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\find.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\search.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\goto.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Folder.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\task.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Schedule.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\action.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Timer.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\donate.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\laptop.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\folder_closed.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\link.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\folder_accessdenied.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\hive.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\hive-accessdenied.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\folderup.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Binary.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\text.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\number-4.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\number-8.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\scylla.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\check.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\error.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\warning.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="..\Bin\AntiRootkit.sys" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\pooltag.txt" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Synchronization">
+      <UniqueIdentifier>{08ba55e2-d7d7-4d8a-80c2-d1203de7ef76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ktl">
+      <UniqueIdentifier>{33f70f83-4ce1-4895-91aa-e2bd0d9a8525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="APC">
+      <UniqueIdentifier>{7ddf8f9c-2c3c-4897-97e5-7d5ec40aa64e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DbgCore">
+      <UniqueIdentifier>{d16ecf0f-c2bb-4c5b-9769-755333485338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bypass">
+      <UniqueIdentifier>{9fd85ddb-fd28-4534-beee-8241d4811182}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hook">
+      <UniqueIdentifier>{5efc8128-07c3-4b26-a1a1-3182a8d2adfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Timer">
+      <UniqueIdentifier>{c59f543e-d208-4f78-899d-a0147ca066cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{568d9ff4-a4e3-4b4f-af30-d482ec4f3944}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectAttributes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistryKey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DevMonManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PEParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SysMon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SysMonCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessProtect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoLock.h">
+      <Filter>Synchronization</Filter>
+    </ClInclude>
+    <ClInclude Include="SpinLock.h">
+      <Filter>Synchronization</Filter>
+    </ClInclude>
+    <ClInclude Include="Mutex.h">
+      <Filter>Synchronization</Filter>
+    </ClInclude>
+    <ClInclude Include="FastMutex.h">
+      <Filter>Synchronization</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>ktl</Filter>
+    </ClInclude>
+    <ClInclude Include="kstring.h">
+      <Filter>ktl</Filter>
+    </ClInclude>
+    <ClInclude Include="kvector.h">
+      <Filter>ktl</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>ktl</Filter>
+    </ClInclude>
+    <ClInclude Include="QueuedSpinLock.h">
+      <Filter>ktl</Filter>
+    </ClInclude>
+    <ClInclude Include="GuardedRegion.h">
+      <Filter>APC</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalRegion.h">
+      <Filter>APC</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoEnter.h">
+      <Filter>APC</Filter>
+    </ClInclude>
+    <ClInclude Include="CyclicBuffer.h">
+      <Filter>ktl</Filter>
+    </ClInclude>
+    <ClInclude Include="DbgDefender.h">
+      <Filter>DbgCore</Filter>
+    </ClInclude>
+    <ClInclude Include="kDbgSys.h">
+      <Filter>DbgCore</Filter>
+    </ClInclude>
+    <ClInclude Include="kDbgCore.h">
+      <Filter>DbgCore</Filter>
+    </ClInclude>
+    <ClInclude Include="ExecutiveResource.h">
+      <Filter>Synchronization</Filter>
+    </ClInclude>
+    <ClInclude Include="LookasideList.h">
+      <Filter>ktl</Filter>
+    </ClInclude>
+    <ClInclude Include="kDbgUtil.h">
+      <Filter>DbgCore</Filter>
+    </ClInclude>
+    <ClInclude Include="typesdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Teb.h">
+      <Filter>DbgCore</Filter>
+    </ClInclude>
+    <ClInclude Include="BypassObCallback.h">
+      <Filter>Bypass</Filter>
+    </ClInclude>
+    <ClInclude Include="khook.h">
+      <Filter>hook</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm.h">
+      <Filter>hook</Filter>
+    </ClInclude>
+    <ClInclude Include="detours.h">
+      <Filter>hook</Filter>
+    </ClInclude>
+    <ClInclude Include="BypassAntiKernelDbg.h">
+      <Filter>Bypass</Filter>
+    </ClInclude>
+    <ClInclude Include="KernelTimer.h">
+      <Filter>Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="IoTimer.h">
+      <Filter>Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Section.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NtWow64.h">
+      <Filter>DbgCore</Filter>
+    </ClInclude>
+    <ClInclude Include="NtMmApi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterFileNameInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VadHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CpuInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinExtHosts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ksocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ktdi.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessNetFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
+      <Filter>ktl</Filter>
+    </ClInclude>
+    <ClInclude Include="reflector.h">
+      <Filter>hook</Filter>
+    </ClInclude>
+    <ClInclude Include="hal.h">
+      <Filter>hook</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessAccessRights.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectAttributes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistryKey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DevMonManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PEParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SysMon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessProtect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Logging.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoLock.cpp">
+      <Filter>Synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="FastMutex.cpp">
+      <Filter>Synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="Mutex.cpp">
+      <Filter>Synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="SpinLock.cpp">
+      <Filter>Synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="CriticalRegion.cpp">
+      <Filter>APC</Filter>
+    </ClCompile>
+    <ClCompile Include="GuardedRegion.cpp">
+      <Filter>APC</Filter>
+    </ClCompile>
+    <ClCompile Include="kstring.cpp">
+      <Filter>ktl</Filter>
+    </ClCompile>
+    <ClCompile Include="kvector.cpp">
+      <Filter>ktl</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>ktl</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>ktl</Filter>
+    </ClCompile>
+    <ClCompile Include="QueuedSpinLock.cpp">
+      <Filter>ktl</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoEnter.cpp">
+      <Filter>APC</Filter>
+    </ClCompile>
+    <ClCompile Include="CyclicBuffer.cpp">
+      <Filter>ktl</Filter>
+    </ClCompile>
+    <ClCompile Include="kDbgSys.cpp">
+      <Filter>DbgCore</Filter>
+    </ClCompile>
+    <ClCompile Include="DbgDefender.cpp">
+      <Filter>DbgCore</Filter>
+    </ClCompile>
+    <ClCompile Include="ExecutiveResource.cpp">
+      <Filter>Synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="LookasideList.cpp">
+      <Filter>ktl</Filter>
+    </ClCompile>
+    <ClCompile Include="kDbgUtil.cpp">
+      <Filter>DbgCore</Filter>
+    </ClCompile>
+    <ClCompile Include="BypassObCallback.cpp">
+      <Filter>Bypass</Filter>
+    </ClCompile>
+    <ClCompile Include="khook.cpp">
+      <Filter>hook</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm.cpp">
+      <Filter>hook</Filter>
+    </ClCompile>
+    <ClCompile Include="detours.cpp">
+      <Filter>hook</Filter>
+    </ClCompile>
+    <ClCompile Include="BypassAntiKernelDbg.cpp">
+      <Filter>Bypass</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelTimer.cpp">
+      <Filter>Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="IoTimer.cpp">
+      <Filter>Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Section.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterFileNameInformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VadHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CpuInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinExtHosts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ksocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ktdi.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessNetFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTable.cpp">
+      <Filter>ktl</Filter>
+    </ClCompile>
+    <ClCompile Include="reflector.cpp">
+      <Filter>hook</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="code64.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="code32.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+  </ItemGroup>
+</Project>

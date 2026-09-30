@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{B8B52E8A-3A29-449D-B324-7A72994F83E2}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WIN64;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>..\PEParser;..\WinSysCore;..\PdbParser;..\Utils;..\diStorm3\include</AdditionalIncludeDirectories>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>WinArk.h</HeaderFileName>
+      <InterfaceIdentifierFileName>WinArk_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>WinArk_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)/WinArk.tlb</TypeLibraryName>
+      <DllDataFileName />
+    </Midl>
+    <Manifest>
+      <AdditionalManifestFiles>manifest.xml</AdditionalManifestFiles>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>..\PEParser;..\WinSysCore;..\PdbParser;..\Utils;..\diStorm3\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>WinArk.h</HeaderFileName>
+      <InterfaceIdentifierFileName>WinArk_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>WinArk_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)/WinArk.tlb</TypeLibraryName>
+      <DllDataFileName />
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ExceptionHandling />
+      <DebugInformationFormat />
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\PEParser;..\WinSysCore;..\PdbParser;..\Utils;..\diStorm3\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>..\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>WinArk.h</HeaderFileName>
+      <InterfaceIdentifierFileName>WinArk_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>WinArk_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)/WinArk.tlb</TypeLibraryName>
+      <DllDataFileName />
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ExceptionHandling>false</ExceptionHandling>
+      <DebugInformationFormat />
+      <PreprocessorDefinitions>_WIN64;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\PEParser;..\WinSysCore;..\PdbParser;..\Utils;..\diStorm3\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <StackReserveSize>524288</StackReserveSize>
+      <StackCommitSize>8192</StackCommitSize>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>WinArk.h</HeaderFileName>
+      <InterfaceIdentifierFileName>WinArk_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>WinArk_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)/WinArk.tlb</TypeLibraryName>
+      <DllDataFileName />
+    </Midl>
+    <Manifest>
+      <AdditionalManifestFiles>manifest.xml</AdditionalManifestFiles>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AboutDlg.cpp" />
+    <ClCompile Include="AccessMaskDecoder.cpp" />
+    <ClCompile Include="ApiReader.cpp" />
+    <ClCompile Include="AppCommandBase.cpp" />
+    <ClCompile Include="BigPoolView.cpp" />
+    <ClCompile Include="BinaryEventDataSerializer.cpp" />
+    <ClCompile Include="BinaryValueDlg.cpp" />
+    <ClCompile Include="BypassDlg.cpp" />
+    <ClCompile Include="CallStackDlg.cpp" />
+    <ClCompile Include="ConfigServerDlg.cpp" />
+    <ClCompile Include="DisasmDlg.cpp" />
+    <ClCompile Include="ExplorerView.cpp" />
+    <ClCompile Include="ExtensionTable.cpp" />
+    <ClCompile Include="ExtensionTableDlg.cpp" />
+    <ClCompile Include="HexEdit.cpp" />
+    <ClCompile Include="IATReferenceScan.cpp" />
+    <ClCompile Include="IATSearcher.cpp" />
+    <ClCompile Include="ImportRebuilder.cpp" />
+    <ClCompile Include="ImportsHandling.cpp" />
+    <ClCompile Include="KernelEATHookDlg.cpp" />
+    <ClCompile Include="KernelEATHookTable.cpp" />
+    <ClCompile Include="KernelInlineHookDlg.cpp" />
+    <ClCompile Include="KernelInlineHookTable.cpp" />
+    <ClCompile Include="MiscView.cpp" />
+    <ClCompile Include="ObjectCallbackTable.cpp" />
+    <ClCompile Include="PickDLLDlg.cpp" />
+    <ClCompile Include="ProcessAccessHelper.cpp" />
+    <ClCompile Include="ProcessATHookDlg.cpp" />
+    <ClCompile Include="ChangeValueCommand.cpp" />
+    <ClCompile Include="ClipboardHelper.cpp" />
+    <ClCompile Include="ColorBox.cpp" />
+    <ClCompile Include="ColorsSelectionDlg.cpp" />
+    <ClCompile Include="ColumnManager.cpp" />
+    <ClCompile Include="CommandManager.cpp" />
+    <ClCompile Include="CopyKeyCommand.cpp" />
+    <ClCompile Include="CopyValueCommand.cpp" />
+    <ClCompile Include="CreateKeyCommand.cpp" />
+    <ClCompile Include="CreateValueCommand.cpp" />
+    <ClCompile Include="CSVEventDataSerializer.cpp" />
+    <ClCompile Include="DeleteKeyCommand.cpp" />
+    <ClCompile Include="DeleteValueCommand.cpp" />
+    <ClCompile Include="DeviceManagerView.cpp" />
+    <ClCompile Include="DeviceObjectType.cpp" />
+    <ClCompile Include="DialogHelper.cpp" />
+    <ClCompile Include="DispatchRoutinesTable.cpp" />
+    <ClCompile Include="DpcTimerTable.cpp" />
+    <ClCompile Include="DriverTable.cpp" />
+    <ClCompile Include="EnumString.cpp" />
+    <ClCompile Include="EnvironmentDlg.cpp" />
+    <ClCompile Include="EtwView.cpp" />
+    <ClCompile Include="EventConfiguration.cpp" />
+    <ClCompile Include="EventNameFilter.cpp" />
+    <ClCompile Include="EventObjectType.cpp" />
+    <ClCompile Include="EventPropertiesDlg.cpp" />
+    <ClCompile Include="EventsDlg.cpp" />
+    <ClCompile Include="ExportDlg.cpp" />
+    <ClCompile Include="FileObjectType.cpp" />
+    <ClCompile Include="FileVersionInfoHelper.cpp" />
+    <ClCompile Include="FilterConfiguration.cpp" />
+    <ClCompile Include="FilterFactory.cpp" />
+    <ClCompile Include="FiltersDlg.cpp" />
+    <ClCompile Include="LogonSessionsView.cpp" />
+    <ClCompile Include="MiniFilterDlg.cpp" />
+    <ClCompile Include="MiniFilterOperationTable.cpp" />
+    <ClCompile Include="MiniFilterTable.cpp" />
+    <ClCompile Include="FormatHelper.cpp" />
+    <ClCompile Include="GotoKeyDlg.cpp" />
+    <ClCompile Include="IniFile.cpp" />
+    <ClCompile Include="IoTimerTable.cpp" />
+    <ClCompile Include="KernelNotifyTable.cpp" />
+    <ClCompile Include="KernelPoolView.cpp" />
+    <ClCompile Include="KernelRoutineDlg.cpp" />
+    <ClCompile Include="KernelView.cpp" />
+    <ClCompile Include="PiDDBCacheTable.cpp" />
+    <ClCompile Include="ProcessATHookTable.cpp" />
+    <ClCompile Include="ProcessNameFilter.cpp" />
+    <ClCompile Include="ProcessIdFilter.cpp" />
+    <ClCompile Include="ProcessInlineHookDlg.cpp" />
+    <ClCompile Include="ProcessInlineHookTable.cpp" />
+    <ClCompile Include="ProgressDlg.cpp" />
+    <ClCompile Include="PropertyNameFilter.cpp" />
+    <ClCompile Include="PropertyValueFilter.cpp" />
+    <ClCompile Include="QuickFindDlg.cpp" />
+    <ClCompile Include="RegExportImport.cpp" />
+    <ClCompile Include="RegHelpers.cpp" />
+    <ClCompile Include="HexControl.cpp" />
+    <ClCompile Include="ImageHelper.cpp" />
+    <ClCompile Include="NumberValueDlg.cpp" />
+    <ClCompile Include="JobObjectType.cpp" />
+    <ClCompile Include="JobPropertiesDlg.cpp" />
+    <ClCompile Include="KernelHookView.cpp" />
+    <ClCompile Include="KeyObjectType.cpp" />
+    <ClCompile Include="ListCtrlHelper.cpp" />
+    <ClCompile Include="ListViewHelper.cpp" />
+    <ClCompile Include="LocationManager.cpp" />
+    <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="MemoryBuffer.cpp" />
+    <ClCompile Include="MultiStringValueDlg.cpp" />
+    <ClCompile Include="MutexObjectType.cpp" />
+    <ClCompile Include="NetworkTable.cpp" />
+    <ClCompile Include="NewKeyDlg.cpp" />
+    <ClCompile Include="ObjectType.cpp" />
+    <ClCompile Include="ObjectTypeFactory.cpp" />
+    <ClCompile Include="OwnerDrawnMenu.cpp" />
+    <ClCompile Include="ProcessHandleDlg.cpp" />
+    <ClCompile Include="ProcessHandleTable.cpp" />
+    <ClCompile Include="ProcessHelper.cpp" />
+    <ClCompile Include="ProcessInfoEx.cpp" />
+    <ClCompile Include="ProcessMemoryDlg.cpp" />
+    <ClCompile Include="ProcessMemoryTable.cpp" />
+    <ClCompile Include="ProcessModuleDlg.cpp" />
+    <ClCompile Include="ProcessModuleTable.cpp" />
+    <ClCompile Include="ProcessObjectType.cpp" />
+    <ClCompile Include="ProcessPropertiesDlg.cpp" />
+    <ClCompile Include="ProcessTable.cpp" />
+    <ClCompile Include="ProcessThreadDlg.cpp" />
+    <ClCompile Include="ProcessThreadTable.cpp" />
+    <ClCompile Include="Registry.cpp" />
+    <ClCompile Include="RegistryKey.cpp" />
+    <ClCompile Include="RegistrySearcher.cpp" />
+    <ClCompile Include="RenameKeyCommand.cpp" />
+    <ClCompile Include="RenameValueCommand.cpp" />
+    <ClCompile Include="ScyllaDlg.cpp" />
+    <ClCompile Include="SectionObjectType.cpp" />
+    <ClCompile Include="SecurityInfo.cpp" />
+    <ClCompile Include="SecurityInformation.cpp" />
+    <ClCompile Include="SemaphoreObjectType.cpp" />
+    <ClCompile Include="SerializerFactory.cpp" />
+    <ClCompile Include="ServiceInfoEx.cpp" />
+    <ClCompile Include="ServiceTable.cpp" />
+    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="ShadowSSDTTable.cpp" />
+    <ClCompile Include="ShellMgr.cpp" />
+    <ClCompile Include="SortHelpler.cpp" />
+    <ClCompile Include="SSDTHookTable.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="KernelModuleTable.cpp" />
+    <ClCompile Include="StringValueDlg.cpp" />
+    <ClCompile Include="SymbolHelper.cpp" />
+    <ClCompile Include="SymbolicLinkObjectType.cpp" />
+    <ClCompile Include="SymbolFileInfo.cpp" />
+    <ClCompile Include="SysInfoView.cpp" />
+    <ClCompile Include="SystemConfigDlg.cpp" />
+    <ClCompile Include="SystemUsersView.cpp" />
+    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="TaskHelper.cpp" />
+    <ClCompile Include="TaskSchedView.cpp" />
+    <ClCompile Include="Theme.cpp" />
+    <ClCompile Include="ThemeColor.cpp" />
+    <ClCompile Include="ThemeHelper.cpp" />
+    <ClCompile Include="ThemeSystem.cpp" />
+    <ClCompile Include="ThreadObjectType.cpp" />
+    <ClCompile Include="TimerObjectType.cpp" />
+    <ClCompile Include="TokenObjectType.cpp" />
+    <ClCompile Include="TokenPropertiesDlg.cpp" />
+    <ClCompile Include="TreeHelper.cpp" />
+    <ClCompile Include="TreeImportExport.cpp" />
+    <ClCompile Include="UnloadedDriverTable.cpp" />
+    <ClCompile Include="View.cpp" />
+    <ClCompile Include="WFPFilterTable.cpp" />
+    <ClCompile Include="WinArk.cpp" />
+    <ClCompile Include="WindowHelper.cpp" />
+    <ClCompile Include="WindowsView.cpp" />
+    <ClCompile Include="WinExtHostsTable.cpp" />
+    <ClCompile Include="WinStationObjectType.cpp" />
+    <ClCompile Include="WorkerFactoryObjectType.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AboutDlg.h" />
+    <ClInclude Include="AccessMaskDecoder.h" />
+    <ClInclude Include="ApiReader.h" />
+    <ClInclude Include="AppCommandBase.h" />
+    <ClInclude Include="AppSettings.h" />
+    <ClInclude Include="Architecture.h" />
+    <ClInclude Include="BigPoolView.h" />
+    <ClInclude Include="BinaryEventDataSerializer.h" />
+    <ClInclude Include="BinaryValueDlg.h" />
+    <ClInclude Include="BypassDlg.h" />
+    <ClInclude Include="CallStackDlg.h" />
+    <ClInclude Include="ComHelper.h" />
+    <ClInclude Include="ConfigServerDlg.h" />
+    <ClInclude Include="CustomListView.h" />
+    <ClInclude Include="CustomSplitterWindow.h" />
+    <ClInclude Include="DisasmDlg.h" />
+    <ClInclude Include="ExplorerView.h" />
+    <ClInclude Include="ExtensionTable.h" />
+    <ClInclude Include="ExtensionTableDlg.h" />
+    <ClInclude Include="HexEdit.h" />
+    <ClInclude Include="IATReferenceScan.h" />
+    <ClInclude Include="IATSearcher.h" />
+    <ClInclude Include="ImportRebuilder.h" />
+    <ClInclude Include="ImportsHandling.h" />
+    <ClInclude Include="KernelEATHookDlg.h" />
+    <ClInclude Include="KernelEATHookTable.h" />
+    <ClInclude Include="KernelInlineHookDlg.h" />
+    <ClInclude Include="KernelInlineHookTable.h" />
+    <ClInclude Include="MiscView.h" />
+    <ClInclude Include="MultiTree.h" />
+    <ClInclude Include="ObjectCallbackTable.h" />
+    <ClInclude Include="PickDLLDlg.h" />
+    <ClInclude Include="ProcessAccessHelper.h" />
+    <ClInclude Include="ProcessATHookDlg.h" />
+    <ClInclude Include="ChangeValueCommand.h" />
+    <ClInclude Include="ClipboardHelper.h" />
+    <ClInclude Include="ColorBox.h" />
+    <ClInclude Include="ColorsSelectionDlg.h" />
+    <ClInclude Include="ColumnManager.h" />
+    <ClInclude Include="CommandManager.h" />
+    <ClInclude Include="CopyKeyCommand.h" />
+    <ClInclude Include="CopyValueCommand.h" />
+    <ClInclude Include="CreateKeyCommand.h" />
+    <ClInclude Include="CreateValueCommand.h" />
+    <ClInclude Include="CSVEventDataSerializer.h" />
+    <ClInclude Include="CustomButton.h" />
+    <ClInclude Include="DeleteKeyCommand.h" />
+    <ClInclude Include="DeleteValueCommand.h" />
+    <ClInclude Include="DeviceManagerView.h" />
+    <ClInclude Include="DeviceObjectType.h" />
+    <ClInclude Include="DialogHelper.h" />
+    <ClInclude Include="DispatchRoutinesTable.h" />
+    <ClInclude Include="DpcTimerTable.h" />
+    <ClInclude Include="DriverTable.h" />
+    <ClInclude Include="EnumStrings.h" />
+    <ClInclude Include="EnvironmentDlg.h" />
+    <ClInclude Include="EtwView.h" />
+    <ClInclude Include="EventConfiguration.h" />
+    <ClInclude Include="EventNameFilter.h" />
+    <ClInclude Include="EventObjectType.h" />
+    <ClInclude Include="EventPropertiesDlg.h" />
+    <ClInclude Include="EventsDlg.h" />
+    <ClInclude Include="ExportDlg.h" />
+    <ClInclude Include="FileObjectType.h" />
+    <ClInclude Include="FileVersionInfoHelper.h" />
+    <ClInclude Include="FilterConfiguration.h" />
+    <ClInclude Include="FilterFactory.h" />
+    <ClInclude Include="FiltersDlg.h" />
+    <ClInclude Include="LogonSessionsView.h" />
+    <ClInclude Include="MiniFilterDlg.h" />
+    <ClInclude Include="MiniFilterOperationTable.h" />
+    <ClInclude Include="MiniFilterTable.h" />
+    <ClInclude Include="FindOptions.h" />
+    <ClInclude Include="FormatHelper.h" />
+    <ClInclude Include="GotoKeyDlg.h" />
+    <ClInclude Include="IEventDataSerializer.h" />
+    <ClInclude Include="IniFile.h" />
+    <ClInclude Include="Interfaces.h" />
+    <ClInclude Include="IoTimerTable.h" />
+    <ClInclude Include="KernelNotifyTable.h" />
+    <ClInclude Include="KernelPoolView.h" />
+    <ClInclude Include="KernelRoutineDlg.h" />
+    <ClInclude Include="KernelView.h" />
+    <ClInclude Include="PiDDBCacheTable.h" />
+    <ClInclude Include="ProcessATHookTable.h" />
+    <ClInclude Include="ProcessIdFilter.h" />
+    <ClInclude Include="ProcessInlineHookDlg.h" />
+    <ClInclude Include="ProcessInlineHookTable.h" />
+    <ClInclude Include="ProcessNameFilter.h" />
+    <ClInclude Include="ProgressDlg.h" />
+    <ClInclude Include="PropertyNameFilter.h" />
+    <ClInclude Include="PropertyValueFilter.h" />
+    <ClInclude Include="QuickFindDlg.h" />
+    <ClInclude Include="RegExportImport.h" />
+    <ClInclude Include="RegHelpers.h" />
+    <ClInclude Include="HexControl.h" />
+    <ClInclude Include="ImageHelper.h" />
+    <ClInclude Include="Internals.h" />
+    <ClInclude Include="NumberValueDlg.h" />
+    <ClInclude Include="JobObjectType.h" />
+    <ClInclude Include="JobPropertiesDlg.h" />
+    <ClInclude Include="KernelHookView.h" />
+    <ClInclude Include="KeyObjectType.h" />
+    <ClInclude Include="ListCtrlHelper.h" />
+    <ClInclude Include="ListViewHelper.h" />
+    <ClInclude Include="LocationManager.h" />
+    <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="MemoryBuffer.h" />
+    <ClInclude Include="MultiStringValueDlg.h" />
+    <ClInclude Include="MutexObjectType.h" />
+    <ClInclude Include="NetworkTable.h" />
+    <ClInclude Include="NewKeyDlg.h" />
+    <ClInclude Include="NtDll.h" />
+    <ClInclude Include="ObjectType.h" />
+    <ClInclude Include="ObjectTypeFactory.h" />
+    <ClInclude Include="OwnerDrawnMenu.h" />
+    <ClInclude Include="ProcessHandleDlg.h" />
+    <ClInclude Include="ProcessHandleTable.h" />
+    <ClInclude Include="ProcessHelper.h" />
+    <ClInclude Include="ProcessInfoEx.h" />
+    <ClInclude Include="ProcessMemoryDlg.h" />
+    <ClInclude Include="ProcessMemoryTable.h" />
+    <ClInclude Include="ProcessModuleDlg.h" />
+    <ClInclude Include="ProcessModuleTable.h" />
+    <ClInclude Include="ProcessObjectType.h" />
+    <ClInclude Include="ProcessPropertiesDlg.h" />
+    <ClInclude Include="ProcessTable.h" />
+    <ClInclude Include="ProcessThreadDlg.h" />
+    <ClInclude Include="ProcessThreadTable.h" />
+    <ClInclude Include="Registry.h" />
+    <ClInclude Include="RegistryKey.h" />
+    <ClInclude Include="RegistrySearcher.h" />
+    <ClInclude Include="RenameKeyCommand.h" />
+    <ClInclude Include="RenameValueCommand.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ScyllaDlg.h" />
+    <ClInclude Include="SectionObjectType.h" />
+    <ClInclude Include="SecurityInfo.h" />
+    <ClInclude Include="SecurityInformation.h" />
+    <ClInclude Include="SemaphoreObjectType.h" />
+    <ClInclude Include="SerializerFactory.h" />
+    <ClInclude Include="ServiceInfoEx.h" />
+    <ClInclude Include="ServiceTable.h" />
+    <ClInclude Include="Settings.h" />
+    <ClInclude Include="ShadowSSDTTable.h" />
+    <ClInclude Include="ShellMgr.h" />
+    <ClInclude Include="SizeGrip.h" />
+    <ClInclude Include="SortedFilteredVector.h" />
+    <ClInclude Include="SortHelper.h" />
+    <ClInclude Include="SSDTHookTable.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="KernelModuleTable.h" />
+    <ClInclude Include="StringValueDlg.h" />
+    <ClInclude Include="SymbolHelper.h" />
+    <ClInclude Include="SymbolicLinkObjectType.h" />
+    <ClInclude Include="SymbolFileInfo.h" />
+    <ClInclude Include="SysInfoView.h" />
+    <ClInclude Include="SystemConfigDlg.h" />
+    <ClInclude Include="SystemUsersView.h" />
+    <ClInclude Include="Table.h" />
+    <ClInclude Include="TaskHelper.h" />
+    <ClInclude Include="TaskSchedView.h" />
+    <ClInclude Include="Theme.h" />
+    <ClInclude Include="ThemeColor.h" />
+    <ClInclude Include="ThemeHelper.h" />
+    <ClInclude Include="ThemeSystem.h" />
+    <ClInclude Include="ThreadObjectType.h" />
+    <ClInclude Include="Thunks.h" />
+    <ClInclude Include="TimerObjectType.h" />
+    <ClInclude Include="TokenObjectType.h" />
+    <ClInclude Include="TokenPropertiesDlg.h" />
+    <ClInclude Include="TreeHelper.h" />
+    <ClInclude Include="TreeImportExport.h" />
+    <ClInclude Include="TreeViewManager.h" />
+    <ClInclude Include="UnloadedDriverTable.h" />
+    <ClInclude Include="View.h" />
+    <ClInclude Include="ViewBase.h" />
+    <ClInclude Include="VirtualListView.h" />
+    <ClInclude Include="WFPFilterTable.h" />
+    <ClInclude Include="WindowHelper.h" />
+    <ClInclude Include="WindowsView.h" />
+    <ClInclude Include="WinExtHostsTable.h" />
+    <ClInclude Include="WinStationObjectType.h" />
+    <ClInclude Include="WorkerFactoryObjectType.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WinArk.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\action.ico" />
+    <Image Include="res\arrow_down_blue.ico" />
+    <Image Include="res\arrow_up_blue.ico" />
+    <Image Include="res\autoscroll.ico" />
+    <Image Include="res\Binary.ico" />
+    <Image Include="res\cancel.ico" />
+    <Image Include="res\check.ico" />
+    <Image Include="res\delete_button.ico" />
+    <Image Include="res\dll-add.ico" />
+    <Image Include="res\dll-delete.ico" />
+    <Image Include="res\donate.bmp" />
+    <Image Include="res\error.ico" />
+    <Image Include="res\event3.ico" />
+    <Image Include="res\file.ico" />
+    <Image Include="res\filter-add.ico" />
+    <Image Include="res\filter-delete.ico" />
+    <Image Include="res\filter-edit.ico" />
+    <Image Include="res\filter.ico" />
+    <Image Include="res\find.ico" />
+    <Image Include="res\Folder.ico" />
+    <Image Include="res\folderup.ico" />
+    <Image Include="res\folder_accessdenied.ico" />
+    <Image Include="res\folder_closed.ico" />
+    <Image Include="res\folder_open.ico" />
+    <Image Include="res\gear.ico" />
+    <Image Include="res\goto.ico" />
+    <Image Include="res\handle.ico" />
+    <Image Include="res\handles.ico" />
+    <Image Include="res\heap.ico" />
+    <Image Include="res\heap2.ico" />
+    <Image Include="res\hive-accessdenied.ico" />
+    <Image Include="res\hive.ico" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\icon2.ico" />
+    <Image Include="res\laptop.ico" />
+    <Image Include="res\letter-k.ico" />
+    <Image Include="res\letter-u.ico" />
+    <Image Include="res\link.ico" />
+    <Image Include="res\memory.ico" />
+    <Image Include="res\Modules.ico" />
+    <Image Include="res\network.ico" />
+    <Image Include="res\number-4.ico" />
+    <Image Include="res\number-8.ico" />
+    <Image Include="res\object.ico" />
+    <Image Include="res\ok.ico" />
+    <Image Include="res\ok_button.ico" />
+    <Image Include="res\Pause.ico" />
+    <Image Include="res\Play.ico" />
+    <Image Include="res\process-delete.ico" />
+    <Image Include="res\process-new.ico" />
+    <Image Include="res\properties.ico" />
+    <Image Include="res\refresh.ico" />
+    <Image Include="res\registry.ico" />
+    <Image Include="res\Schedule.ico" />
+    <Image Include="res\scylla.ico" />
+    <Image Include="res\search.ico" />
+    <Image Include="res\stack.ico" />
+    <Image Include="res\Stop.ico" />
+    <Image Include="res\storage.ico" />
+    <Image Include="res\task.ico" />
+    <Image Include="res\text.ico" />
+    <Image Include="res\threads-delete.ico" />
+    <Image Include="res\threads-new.ico" />
+    <Image Include="res\threads.ico" />
+    <Image Include="res\Timer.ico" />
+    <Image Include="res\tools.ico" />
+    <Image Include="res\warning.ico" />
+    <Image Include="res\WinArk.ico" />
+    <Image Include="res\window.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Bin\AntiRootkit.sys" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\diStorm3\diStorm3.vcxproj">
+      <Project>{bf8907f1-25d4-4f6f-ab03-7ff29ff56588}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\PdbParser\PdbParser.vcxproj">
+      <Project>{e0e3d364-abf7-407d-a67c-fdddb58687f3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\PEParser\PEParser.vcxproj">
+      <Project>{cc899776-2282-4442-bc9d-f21130c80fe1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.vcxproj">
+      <Project>{4276ef07-4fde-43ae-9c72-4cf73e669741}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WinSysCore\WinSysCore.vcxproj">
+      <Project>{38942b29-a5a3-49c3-a922-0c1082db33c0}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\pooltag.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Microsoft.Windows.ImplementationLibrary.1.0.201120.3\build\native\Microsoft.Windows.ImplementationLibrary.targets" Condition="Exists('..\packages\Microsoft.Windows.ImplementationLibrary.1.0.201120.3\build\native\Microsoft.Windows.ImplementationLibrary.targets')" />
+    <Import Project="..\packages\wtl.10.0.10077\build\native\wtl.targets" Condition="Exists('..\packages\wtl.10.0.10077\build\native\wtl.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.ImplementationLibrary.1.0.201120.3\build\native\Microsoft.Windows.ImplementationLibrary.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.ImplementationLibrary.1.0.201120.3\build\native\Microsoft.Windows.ImplementationLibrary.targets'))" />
+    <Error Condition="!Exists('..\packages\wtl.10.0.10077\build\native\wtl.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\wtl.10.0.10077\build\native\wtl.targets'))" />
+  </Target>
+</Project>

@@ -1,0 +1,102 @@
+name: Build WinArk (Windows Vista/7 Compatible)
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Platform to build (Win32, x64, or both)'
+        required: false
+        default: 'both'
+
+jobs:
+  build:
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        platform: [Win32, x64]
+    
+    steps:
+    - name: Checkout repo with submodules
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1.3
+      with:
+        vs-version: '[17,)'
+
+    - name: Install Windows SDK for compatibility
+      run: |
+        # Установим Windows 7.1 SDK для лучшей совместимости
+        choco install windows-sdk-10-version-22000 -y --no-progress
+      shell: powershell
+      continue-on-error: true
+
+    - name: Setup vcpkg
+      run: |
+        git clone https://github.com/Microsoft/vcpkg.git C:\vcpkg
+        cd C:\vcpkg
+        .\bootstrap-vcpkg.bat
+      shell: cmd
+
+    - name: Install dependencies for ${{ matrix.platform }}
+      run: |
+        $platform = "${{ matrix.platform }}"
+        if ($platform -eq "Win32") {
+          $triplet = "x86-windows-static"
+        } else {
+          $triplet = "x64-windows-static"
+        }
+        
+        Write-Host "Installing for triplet: $triplet"
+        C:\vcpkg\vcpkg install capstone[x86]:$triplet --recurse-dependencies
+        C:\vcpkg\vcpkg install curlcpp:$triplet --recurse-dependencies
+        C:\vcpkg\vcpkg install tinyxml2:$triplet --recurse-dependencies
+      shell: powershell
+
+    - name: Build Anti-Rootkit.sys (${{ matrix.platform }})
+      run: |
+        msbuild.exe Anti-Rootkit.sln `
+          -t:Anti-Rootkit:Rebuild `
+          /p:Configuration=Release `
+          /p:Platform=${{ matrix.platform }} `
+          /p:VCPkgRoot="C:\vcpkg" `
+          /p:WindowsTargetPlatformVersion=10.0.22000.0
+      shell: powershell
+
+    - name: Build WinArk.exe (${{ matrix.platform }})
+      run: |
+        msbuild.exe Anti-Rootkit.sln `
+          -t:WinArk:Rebuild `
+          /p:Configuration=Release `
+          /p:Platform=${{ matrix.platform }} `
+          /p:VCPkgRoot="C:\vcpkg" `
+          /p:WindowsTargetPlatformVersion=10.0.22000.0
+      shell: powershell
+
+    - name: List build artifacts
+      run: |
+        Write-Host "=== Build Artifacts ==="
+        Get-ChildItem -Path "." -Recurse -Include "*.exe","*.sys","*.dll" |
+          Where-Object { $_.FullName -match "Release" } |
+          ForEach-Object { Write-Host $_.FullName }
+      shell: powershell
+      continue-on-error: true
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: WinArk-${{ matrix.platform }}-Release
+        path: |
+          **/Release/**/*.exe
+          **/Release/**/*.sys
+          **/Release/**/*.dll
+        retention-days: 90
+        if-no-files-found: warn
+
