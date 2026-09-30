@@ -1,0 +1,25 @@
+name: Inspect runner
+on: workflow_dispatch
+defaults:
+  run:
+    shell: pwsh
+jobs:
+  inspect:
+    runs-on: windows-2022
+    steps:
+    - name: Inspect
+      run: |
+        $kits = "C:\Program Files (x86)\Windows Kits\10"
+        Write-Host "::notice::INCLUDE: $((Get-ChildItem "$kits\Include" -Directory | Select-Object -Expand Name) -join ' ')"
+        Write-Host "::notice::LIB: $((Get-ChildItem "$kits\Lib" -Directory | Select-Object -Expand Name) -join ' ')"
+        Write-Host "::notice::VSIX: $((Get-ChildItem $kits -Recurse -Filter *.vsix -ErrorAction SilentlyContinue | Select-Object -Expand FullName) -join ' ; ')"
+        Write-Host "::notice::VSIXDIR: $(Test-Path "$kits\Vsix")"
+        $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -all -property installationPath
+        Write-Host "::notice::VS: $vs"
+        Write-Host "::notice::TOOLSETS: $((Get-ChildItem "$vs\MSBuild\Microsoft\VC\v170\Platforms\x64\PlatformToolsets" | Select-Object -Expand Name) -join ' ')"
+        Write-Host "::notice::WDKEXT: $(Get-ChildItem "$vs\Common7\IDE\Extensions" -Recurse -Filter '*WindowsDriver*' -ErrorAction SilentlyContinue | Select-Object -First 3 -Expand FullName)"
+        Write-Host "::notice::CHOCO: $(choco --version)"
+        $r = choco search windows-sdk-11-version --limit-output | Out-String
+        Write-Host "::notice::CHOCOPKGS: $($r -replace '\s+',' ')"
+        $r2 = choco search windowsdriverkit --limit-output | Out-String
+        Write-Host "::notice::CHOCOWDK: $($r2 -replace '\s+',' ')"
