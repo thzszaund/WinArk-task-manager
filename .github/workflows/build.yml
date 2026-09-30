@@ -9,13 +9,22 @@ defaults:
   run:
     shell: pwsh
 
+env:
+  SDKVER: 10.0.22000.0
+
 jobs:
   build:
     runs-on: windows-2022
     strategy:
       fail-fast: false
       matrix:
-        platform: [x86, x64]
+        include:
+          - platform: x86
+            zplat: Win32
+            zdir: ReleaseX86Kernel
+          - platform: x64
+            zplat: x64
+            zdir: ReleaseX64Kernel
     steps:
     - uses: actions/checkout@v4
       with:
@@ -23,49 +32,43 @@ jobs:
 
     - uses: microsoft/setup-msbuild@v2
 
-    - name: Environment info
+    - name: Install SDK + WDK 22000
       run: |
-        Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\Include" | Select-Object -ExpandProperty Name
-        $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -all -property installationPath
-        Get-ChildItem "$vs\MSBuild\Microsoft\VC\v170\Platforms\x64\PlatformToolsets" | Select-Object -ExpandProperty Name
-        Test-Path "C:\Program Files (x86)\Windows Kits\10\Vsix\VS2022"
-
-    - name: Install SDK + WDK 10.0.22621
-      run: |
-        $inc = "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0"
-        if (-not (Test-Path $inc)) { choco install windows-sdk-11-version-22h2-all -y --no-progress }
-        Invoke-WebRequest "https://go.microsoft.com/fwlink/?linkid=2196230" -OutFile wdksetup.exe
+        $inc = "C:\Program Files (x86)\Windows Kits\10\Include\$env:SDKVER"
+        if (-not (Test-Path $inc)) { choco install windows-sdk-11-version-21h2-all -y --no-progress }
+        Invoke-WebRequest "https://go.microsoft.com/fwlink/?linkid=2166289" -OutFile wdksetup.exe
         Start-Process .\wdksetup.exe -ArgumentList "/quiet","/norestart" -Wait
-        Test-Path "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\km\ntifs.h"
+        Write-Host "::notice::ntifs: $(Test-Path "$inc\km\ntifs.h")"
         $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
         $vsix = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\Vsix" -Recurse -Filter "WDK.vsix" | Where-Object { $_.FullName -match "VS2022" } | Select-Object -First 1
-        Write-Host "VSIX: $($vsix.FullName)"
+        Write-Host "::notice::VSIX: $($vsix.FullName)"
         Start-Process "$vs\Common7\IDE\VSIXInstaller.exe" -ArgumentList "/quiet","/admin",$vsix.FullName -Wait
 
-    - name: Inspect WDK arch check
+    - name: Build Zydis + Zycore (kernel, ${{ matrix.platform }})
       run: |
-        $f = "C:\Program Files (x86)\Windows Kits\10\build\10.0.22621.0\WindowsDriver.common.targets"
-        $l = Get-Content $f
-        $hits = for ($i=0; $i -lt $l.Count; $i++) { if ($l[$i] -match "not a valid architecture") { $i } }
-        foreach ($h in $hits) {
-          $ctx = ($l[($h-6)..($h+1)] | ForEach-Object { $_.Trim() }) -join " ## "
-          Write-Host "::notice::ARCHCHK: $ctx"
+        $ok = $true
+        foreach ($p in @("deps/zydis/msvc/dependencies/zycore/Zycore.vcxproj","deps/zydis/msvc/zydis/Zydis.vcxproj")) {
+          msbuild $p /p:Configuration="Release Kernel" /p:Platform=${{ matrix.zplat }} /p:WindowsTargetPlatformVersion=$env:SDKVER /v:minimal /nologo *> zy.log
+          if ($LASTEXITCODE -ne 0) {
+            $ok = $false
+            Get-Content zy.log | Where-Object { $_ -match ': (fatal )?error ' } | Select-Object -Unique -First 6 | ForEach-Object { Write-Host "::error::$($_.Trim().Substring(0,[Math]::Min(420,$_.Trim().Length)))" }
+          }
         }
-        Write-Host "::notice::SUBMODULE: $(Test-Path deps/zydis/include/Zydis/Zydis.h) $(Test-Path minhook/CMakeLists.txt)"
+        $dir = (Resolve-Path "deps/zydis/msvc/bin/${{ matrix.zdir }}").Path
+        Get-ChildItem $dir | ForEach-Object { Write-Host "::notice::ZLIB: $($_.Name)" }
+        "LIB=$dir;$env:LIB" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+        if (-not $ok) { exit 1 }
 
     - name: NuGet restore
-      run: |
-        nuget restore Anti-Rootkit.sln
+      run: nuget restore Anti-Rootkit.sln
 
     - name: Build WinArk (${{ matrix.platform }})
       run: |
-        msbuild Anti-Rootkit.sln -t:WinArk /p:Configuration=Release /p:Platform=${{ matrix.platform }} /p:WindowsTargetPlatformVersion=10.0.22621.0 /v:minimal /nologo *> build.log
+        msbuild Anti-Rootkit.sln -t:WinArk /p:Configuration=Release /p:Platform=${{ matrix.platform }} /p:WindowsTargetPlatformVersion=$env:SDKVER /v:minimal /nologo *> build.log
         $code = $LASTEXITCODE
-        Get-Content build.log | Select-Object -Last 30
-        $errs = Get-Content build.log | Where-Object { $_ -match ': (fatal )?error ' } | Select-Object -Unique -First 10
-        foreach ($e in $errs) {
-          $m = $e.Trim()
-          if ($m.Length -gt 450) { $m = $m.Substring(0,450) }
+        Get-Content build.log | Select-Object -Last 25
+        Get-Content build.log | Where-Object { $_ -match ': (fatal )?error ' } | Select-Object -Unique -First 10 | ForEach-Object {
+          $m = $_.Trim(); if ($m.Length -gt 450) { $m = $m.Substring(0,450) }
           Write-Host "::error::$m"
         }
         exit $code
@@ -73,7 +76,7 @@ jobs:
     - name: List outputs
       if: success()
       run: |
-        Get-ChildItem -Recurse -Include *.exe,*.sys,*.dll | Where-Object { $_.FullName -match 'Release' -and $_.FullName -notmatch '\\(obj|_deps|packages)\\' } | ForEach-Object { $_.FullName }
+        Get-ChildItem -Recurse -Include *.exe,*.sys,*.dll | Where-Object { $_.FullName -match '\\Release\\' -and $_.FullName -notmatch '\\(obj|_deps|packages)\\' } | ForEach-Object { $_.FullName }
 
     - uses: actions/upload-artifact@v4
       if: success()
