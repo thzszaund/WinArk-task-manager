@@ -42,6 +42,15 @@ jobs:
         Write-Host "VSIX: $($vsix.FullName)"
         Start-Process "$vs\Common7\IDE\VSIXInstaller.exe" -ArgumentList "/quiet","/admin",$vsix.FullName -Wait
 
+    - name: Inspect WDK arch check
+      run: |
+        $f = "C:\Program Files (x86)\Windows Kits\10\build\10.0.22621.0\WindowsDriver.common.targets"
+        $lines = Get-Content $f
+        $ctx = $lines[222..236] -join " || "
+        Write-Host "::notice::TARGETS: $ctx"
+        Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\build\10.0.22621.0" -Directory | Select-Object -ExpandProperty Name | Out-String | ForEach-Object { Write-Host "::notice::ARCHDIRS: $($_ -replace '\s+',' ')" }
+        Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\km" -Directory | Select-Object -ExpandProperty Name | Out-String | ForEach-Object { Write-Host "::notice::KMLIB: $($_ -replace '\s+',' ')" }
+
     - name: NuGet restore
       run: |
         nuget restore Anti-Rootkit.sln
