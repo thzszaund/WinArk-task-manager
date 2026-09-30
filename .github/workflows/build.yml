@@ -30,13 +30,25 @@ jobs:
         Get-ChildItem "$vs\MSBuild\Microsoft\VC\v170\Platforms\x64\PlatformToolsets" | Select-Object -ExpandProperty Name
         Test-Path "C:\Program Files (x86)\Windows Kits\10\Vsix\VS2022"
 
+    - name: Install SDK + WDK 10.0.22621
+      run: |
+        $inc = "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0"
+        if (-not (Test-Path $inc)) { choco install windows-sdk-11-version-22h2-all -y --no-progress }
+        Invoke-WebRequest "https://go.microsoft.com/fwlink/?linkid=2196230" -OutFile wdksetup.exe
+        Start-Process .\wdksetup.exe -ArgumentList "/quiet","/norestart" -Wait
+        Test-Path "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\km\ntifs.h"
+        $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+        $vsix = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\Vsix" -Recurse -Filter "WDK.vsix" | Where-Object { $_.FullName -match "VS2022" } | Select-Object -First 1
+        Write-Host "VSIX: $($vsix.FullName)"
+        Start-Process "$vs\Common7\IDE\VSIXInstaller.exe" -ArgumentList "/quiet","/admin",$vsix.FullName -Wait
+
     - name: NuGet restore
       run: |
         nuget restore Anti-Rootkit.sln
 
     - name: Build WinArk (${{ matrix.platform }})
       run: |
-        msbuild Anti-Rootkit.sln -t:WinArk /p:Configuration=Release /p:Platform=${{ matrix.platform }} /v:minimal /nologo *> build.log
+        msbuild Anti-Rootkit.sln -t:WinArk /p:Configuration=Release /p:Platform=${{ matrix.platform }} /p:WindowsTargetPlatformVersion=10.0.22621.0 /v:minimal /nologo *> build.log
         $code = $LASTEXITCODE
         Get-Content build.log | Select-Object -Last 30
         $errs = Get-Content build.log | Where-Object { $_ -match ': (fatal )?error ' } | Select-Object -Unique -First 10
