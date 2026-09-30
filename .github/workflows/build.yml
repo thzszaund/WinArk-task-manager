@@ -45,11 +45,13 @@ jobs:
     - name: Inspect WDK arch check
       run: |
         $f = "C:\Program Files (x86)\Windows Kits\10\build\10.0.22621.0\WindowsDriver.common.targets"
-        $lines = Get-Content $f
-        $ctx = $lines[222..236] -join " || "
-        Write-Host "::notice::TARGETS: $ctx"
-        Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\build\10.0.22621.0" -Directory | Select-Object -ExpandProperty Name | Out-String | ForEach-Object { Write-Host "::notice::ARCHDIRS: $($_ -replace '\s+',' ')" }
-        Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\km" -Directory | Select-Object -ExpandProperty Name | Out-String | ForEach-Object { Write-Host "::notice::KMLIB: $($_ -replace '\s+',' ')" }
+        $l = Get-Content $f
+        $hits = for ($i=0; $i -lt $l.Count; $i++) { if ($l[$i] -match "not a valid architecture") { $i } }
+        foreach ($h in $hits) {
+          $ctx = ($l[($h-6)..($h+1)] | ForEach-Object { $_.Trim() }) -join " ## "
+          Write-Host "::notice::ARCHCHK: $ctx"
+        }
+        Write-Host "::notice::SUBMODULE: $(Test-Path deps/zydis/include/Zydis/Zydis.h) $(Test-Path minhook/CMakeLists.txt)"
 
     - name: NuGet restore
       run: |
