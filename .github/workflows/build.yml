@@ -8,153 +8,36 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  diagnose:
+    name: "Diagnose Build Environment"
     runs-on: windows-2022
-    strategy:
-      matrix:
-        platform: [Win32, x64]
-        configuration: [Release]
-    
     steps:
-    - name: "[1/10] Checkout repository"
-      uses: actions/checkout@v3
-      with:
-        submodules: 'recursive'
-        fetch-depth: 0
+      - name: "1. Checkout"
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
-    - name: "[2/10] Validate checkout"
-      shell: pwsh
-      run: |
-        Write-Host "=== Repository Structure ===" -ForegroundColor Cyan
-        Get-Item -Path "Anti-Rootkit.sln" -ErrorAction Stop | Write-Host
-        Get-Item -Path ".github/workflows/build.yml" -ErrorAction Stop | Write-Host
-        Write-Host ""
-        Write-Host "=== Submodules ===" -ForegroundColor Cyan
-        Get-ChildItem -Path "minhook", "deps/zydis" -ErrorAction SilentlyContinue | ForEach-Object { Write-Host $_.FullName }
+      - name: "2. List files"
+        run: |
+          echo "=== Root Files ==="
+          dir /B
+          echo.
+          echo "=== .github/workflows ==="
+          dir .github\workflows /B
+          echo.
+          echo "=== Solution Files ==="
+          dir /S /B *.sln
 
-    - name: "[3/10] Setup MSBuild"
-      uses: microsoft/setup-msbuild@v1.1.3
-      with:
-        vs-version: '[17,)'
+      - name: "3. Setup MSBuild"
+        uses: microsoft/setup-msbuild@v1.1.3
 
-    - name: "[4/10] Verify MSBuild"
-      shell: cmd
-      run: |
-        echo Checking MSBuild path...
-        where msbuild.exe
-        msbuild.exe -version
+      - name: "4. Verify MSBuild"
+        run: |
+          where msbuild.exe
+          msbuild.exe -version
 
-    - name: "[5/10] Setup vcpkg"
-      shell: pwsh
-      run: |
-        Write-Host "Cloning vcpkg..." -ForegroundColor Cyan
-        git clone https://github.com/Microsoft/vcpkg.git C:\vcpkg
-        cd C:\vcpkg
-        Write-Host "Bootstrapping vcpkg..." -ForegroundColor Cyan
-        .\bootstrap-vcpkg.bat
-        Write-Host "vcpkg bootstrap complete" -ForegroundColor Green
-
-    - name: "[6/10] Install vcpkg dependencies (${{ matrix.platform }})"
-      shell: pwsh
-      run: |
-        $triplet = if ("${{ matrix.platform }}" -eq "Win32") { "x86-windows-static" } else { "x64-windows-static" }
-        Write-Host "Installing dependencies for: $triplet" -ForegroundColor Cyan
-        
-        $packages = @("capstone[x86]", "curlcpp", "tinyxml2")
-        foreach ($pkg in $packages) {
-          Write-Host "  → Installing $pkg..." -ForegroundColor Yellow
-          C:\vcpkg\vcpkg install "${pkg}:${triplet}" --recurse-dependencies
-          if ($LASTEXITCODE -ne 0) {
-            Write-Host "    ⚠️  Installation had non-zero exit, continuing..." -ForegroundColor Yellow
-          }
-        }
-        Write-Host "Dependencies installation complete" -ForegroundColor Green
-
-    - name: "[7/10] Build Anti-Rootkit.sys (${{ matrix.platform }})"
-      shell: pwsh
-      run: |
-        Write-Host "Building Anti-Rootkit.sys for ${{ matrix.platform }}..." -ForegroundColor Cyan
-        $msbuild = (Get-Command msbuild.exe).Source
-        Write-Host "Using MSBuild: $msbuild"
-        
-        & $msbuild "Anti-Rootkit.sln" `
-          -t:Anti-Rootkit:Rebuild `
-          /p:Configuration="${{ matrix.configuration }}" `
-          /p:Platform="${{ matrix.platform }}" `
-          /p:VCPkgRoot="C:\vcpkg" `
-          /p:WindowsTargetPlatformVersion=10.0.22000.0 `
-          /v:minimal `
-          /m
-        
-        if ($LASTEXITCODE -eq 0) {
-          Write-Host "✅ Anti-Rootkit.sys build successful" -ForegroundColor Green
-        } else {
-          Write-Host "❌ Anti-Rootkit.sys build failed" -ForegroundColor Red
-          exit $LASTEXITCODE
-        }
-
-    - name: "[8/10] Build WinArk.exe (${{ matrix.platform }})"
-      shell: pwsh
-      run: |
-        Write-Host "Building WinArk.exe for ${{ matrix.platform }}..." -ForegroundColor Cyan
-        $msbuild = (Get-Command msbuild.exe).Source
-        
-        & $msbuild "Anti-Rootkit.sln" `
-          -t:WinArk:Rebuild `
-          /p:Configuration="${{ matrix.configuration }}" `
-          /p:Platform="${{ matrix.platform }}" `
-          /p:VCPkgRoot="C:\vcpkg" `
-          /p:WindowsTargetPlatformVersion=10.0.22000.0 `
-          /v:minimal `
-          /m
-        
-        if ($LASTEXITCODE -eq 0) {
-          Write-Host "✅ WinArk.exe build successful" -ForegroundColor Green
-        } else {
-          Write-Host "❌ WinArk.exe build failed" -ForegroundColor Red
-          exit $LASTEXITCODE
-        }
-
-    - name: "[9/10] List build artifacts"
-      shell: pwsh
-      run: |
-        Write-Host "=== Build Artifacts ===" -ForegroundColor Cyan
-        $files = Get-ChildItem -Path "." -Recurse -Include "*.exe","*.sys","*.dll" -ErrorAction SilentlyContinue |
-          Where-Object { $_.FullName -match "${{ matrix.configuration }}" }
-        
-        if ($files.Count -eq 0) {
-          Write-Host "⚠️  No artifacts found!" -ForegroundColor Yellow
-        } else {
-          $files | ForEach-Object { Write-Host "  ✓ $($_.FullName)" }
-        }
-
-    - name: "[10/10] Upload artifacts"
-      uses: actions/upload-artifact@v3
-      if: success()
-      with:
-        name: WinArk-${{ matrix.platform }}-${{ matrix.configuration }}
-        path: |
-          **/Release/**/*.exe
-          **/Release/**/*.sys
-          **/Release/**/*.dll
-        retention-days: 90
-
-    - name: "❌ Debug on failure"
-      if: failure()
-      shell: pwsh
-      run: |
-        Write-Host "=== Debug Info ===" -ForegroundColor Red
-        Write-Host "PWD: $(pwd)"
-        Write-Host "Environment:"
-        Get-ChildItem -Path Env: | Where-Object { $_.Name -match "VCPKG|MSBUILD|PLATFORM" }
-        Write-Host ""
-        Write-Host "=== Project Files ===" -ForegroundColor Red
-        Get-ChildItem -Path "*.sln" -Recurse
-        Write-Host ""
-        Write-Host "=== vcpkg Status ===" -ForegroundColor Red
-        if (Test-Path "C:\vcpkg\vcpkg.exe") {
-          C:\vcpkg\vcpkg.exe version
-        } else {
-          Write-Host "vcpkg not found!"
-        }
+      - name: "5. Try simple build"
+        run: |
+          msbuild.exe Anti-Rootkit.sln -t:Rebuild /p:Configuration=Release /p:Platform=x64 /v:minimal
+        continue-on-error: true
 
