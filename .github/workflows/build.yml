@@ -10,7 +10,7 @@ defaults:
     shell: pwsh
 
 env:
-  SDKVER: 10.0.22000.0
+  SDKVER: 10.0.19041.0
 
 jobs:
   build:
@@ -32,17 +32,17 @@ jobs:
 
     - uses: microsoft/setup-msbuild@v2
 
-    - name: Install SDK + WDK 22000
+    - name: Install WDK 19041 and retarget toolset v142 -> v143
       run: |
-        $inc = "C:\Program Files (x86)\Windows Kits\10\Include\$env:SDKVER"
-        if (-not (Test-Path $inc)) { choco install windows-sdk-11-version-21h2-all -y --no-progress }
-        Invoke-WebRequest "https://go.microsoft.com/fwlink/?linkid=2166289" -OutFile wdksetup.exe
-        Start-Process .\wdksetup.exe -ArgumentList "/quiet","/norestart" -Wait
-        Write-Host "::notice::ntifs: $(Test-Path "$inc\km\ntifs.h")"
-        $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
-        $vsix = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\Vsix" -Recurse -Filter "WDK.vsix" | Where-Object { $_.FullName -match "VS2022" } | Select-Object -First 1
-        Write-Host "::notice::VSIX: $($vsix.FullName)"
-        Start-Process "$vs\Common7\IDE\VSIXInstaller.exe" -ArgumentList "/quiet","/admin",$vsix.FullName -Wait
+        choco install windowsdriverkit10 -y --no-progress
+        $kits = "C:\Program Files (x86)\Windows Kits\10"
+        Write-Host "::notice::ntifs19041: $(Test-Path "$kits\Include\$env:SDKVER\km\ntifs.h")  build19041: $(Test-Path "$kits\build\$env:SDKVER")"
+        Get-ChildItem -Recurse -Filter *.vcxproj | ForEach-Object {
+          $c = Get-Content $_.FullName -Raw
+          if ($c -match '<PlatformToolset>v142</PlatformToolset>') {
+            ($c -replace '<PlatformToolset>v142</PlatformToolset>','<PlatformToolset>v143</PlatformToolset>') | Set-Content $_.FullName -NoNewline
+          }
+        }
 
     - name: Build Zydis + Zycore (kernel, ${{ matrix.platform }})
       run: |
@@ -64,7 +64,7 @@ jobs:
 
     - name: Build WinArk (${{ matrix.platform }})
       run: |
-        msbuild Anti-Rootkit.sln -t:WinArk /p:Configuration=Release /p:Platform=${{ matrix.platform }} /p:WindowsTargetPlatformVersion=$env:SDKVER /v:minimal /nologo *> build.log
+        msbuild Anti-Rootkit.sln -t:WinArk /p:Configuration=Release /p:Platform=${{ matrix.platform }} /v:minimal /nologo *> build.log
         $code = $LASTEXITCODE
         Get-Content build.log | Select-Object -Last 25
         Get-Content build.log | Where-Object { $_ -match ': (fatal )?error ' } | Select-Object -Unique -First 10 | ForEach-Object {
